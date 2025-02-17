@@ -19,7 +19,7 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         favourites: {
           ...state.favourites,
-          content: state.favourites.content.slice(0, action.payload).concat(state.favourites.content.slice(action.payload + 1)),
+          content: state.favourites.content.filter((_, i) => i !== action.payload),
         },
       };
     default:
